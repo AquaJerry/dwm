@@ -1,18 +1,18 @@
 # My dwm
 
-This is my custom dwm repo. For official one, see dwm.suckless.org.
+This is my custom dwm repo. For official one, see https://dwm.suckless.org.
 
 This dwm provides a simple user interface for me to focus on apps themselves.
 
 
 ## Acknowledgements
 
-- suckless.org e.V., MÃnchen, Germany, who make software that sucks less
+- suckless.org e.V., MÃ¼nchen, Germany, who make software that sucks less
 
 
 ## Used patches
 
-In terminal below have been 'patch < _<some patch>_.diff'.
+In terminal below have been 'patch < \*.diff'.
 
 - dwm.suckless.org/patches/fakefullscreen
 - dwm.suckless.org/patches/notitle
