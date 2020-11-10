@@ -1,13 +1,13 @@
-# My dwm
+# Dynamic window manager for X display server
 
-This is my custom dwm repo. For official one, see https://dwm.suckless.org.
+Forked from official https://dwm.suckless.org.
 
 This dwm provides a simple user interface for me to focus on apps themselves.
 
 
-## Acknowledgements
+## Thanks
 
-- suckless.org e.V., München, Germany, who make software that sucks less
+- suckless.org e.V., München, Germany, who make softwares that suck less
 
 
 ## Used patches
@@ -20,7 +20,7 @@ In terminal below have been 'patch < \*.diff'.
 
 ## Differences from official dwm
 
-Below is by custom config.def.h.
+config.def.h:
 
 - 2 tags in total (9 official)
 - half divide screen in tile layout
@@ -28,6 +28,6 @@ Below is by custom config.def.h.
 - monocle layout at start (tile layout official)
 - no window border
 
-Below is by custom dwm.c.
+dwm.c:
 
 - no default dwm-VERSION status text
