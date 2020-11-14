@@ -1,8 +1,10 @@
-# Dynamic window manager for X display server
+# Dynamic window manager
 
 Forked from official https://dwm.suckless.org.
 
 This dwm provides a simple user interface for me to focus on apps themselves.
+
+For X display server.
 
 
 ## Thanks
