@@ -98,19 +98,30 @@ static const Key keys[] = {
 };
 
 /* button definitions */
+void dmenutag(const Arg*a){view(a);spawn(&(Arg){.v=dmenucmd});}
+void fclayout(){Layout*l=layouts;while(l++-selmon->lt[selmon->sellt]);if(l>layouts-1+sizeof layouts/sizeof*layouts)l=layouts;setlayout(&(Arg){.v=l});}
+void stacknxt(const Arg*a){view(a);focusstack(&(Arg){1});}
+void stackprv(const Arg*a){view(a);focusstack(&(Arg){-1});}
+void tgbarcln(){togglebar(0);selmon->showbar&&XRaiseWindow(dpy,selmon->barwin);}
+void zoomouse(){if(selmon->sel&&selmon->sel->isfloating)togglefloating(0);else zoom(0);}
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-	{ ClkTagBar,            0,              Button1,        view,           {0} },
+	{ ClkLtSymbol,          0,              Button1,        fclayout,       {0} },
+	{ ClkLtSymbol,          0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkLtSymbol,          0,              Button3,        killclient,     {0} },
+	{ ClkLtSymbol,          0,              Button4,        incnmaster,     {-1} },
+	{ ClkLtSymbol,          0,              Button5,        incnmaster,     {1} },
+	{ ClkWinTitle,          0,              Button1,        movemouse,      {0} },
+	{ ClkWinTitle,          0,              Button2,        zoomouse,       {0} },
+	{ ClkWinTitle,          0,              Button3,        resizemouse,    {0} },
+	{ ClkWinTitle,          0,              Button4,        setmfact,       {.f = -.05} },
+	{ ClkWinTitle,          0,              Button5,        setmfact,       {.f = .05} },
+	{ ClkRootWin,           0,              Button2,        togglebar,      {0} },
+	{ ClkClientWin,         0,              Button2,        tgbarcln,       {0} },
+	{ ClkTagBar,            0,              Button1,        toggletag,      {0} },
+	{ ClkTagBar,            0,              Button2,        dmenutag,       {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+	{ ClkTagBar,            0,              Button4,        stackprv,       {0} },
+	{ ClkTagBar,            0,              Button5,        stacknxt,       {0} },
 };
-
